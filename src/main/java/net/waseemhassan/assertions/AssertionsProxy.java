@@ -2,12 +2,15 @@ package net.waseemhassan.assertions;
 
 import net.waseemhassan.assertions.contracts.Assertions;
 
-public class AssertionsProxy<Factory extends AssertionsFactory> implements Assertions {
+public class AssertionsProxy implements Assertions {
     private AssertionsBase assertions;
-    private Factory assertionFactory;
 
     public AssertionsProxy() {
-        assertions = assertionFactory.getDefaultAssertionsInstance();
+        assertions = new DefaultAssertionsFactory().getDefaultAssertionsInstance();
+    }
+
+    public AssertionsProxy(AssertionsFactory factory) {
+        assertions = factory.getDefaultAssertionsInstance();
     }
 
     @Override
@@ -43,4 +46,5 @@ public class AssertionsProxy<Factory extends AssertionsFactory> implements Asser
     protected void setResult(Object[] result) {
         assertions.setResult(result);
     }
+
 }
