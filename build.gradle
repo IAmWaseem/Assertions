@@ -30,7 +30,7 @@ dependencies {
 
 bintray {
     user = 'iamwaseem'
-    key = '862d74e1e12172e86ca1555303f039d96e7e3483'
+    key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     publications = ['MyPublication']
     pkg {
         repo = 'Assertions'
