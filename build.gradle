@@ -1,0 +1,53 @@
+group 'net.waseemhassan'
+version '1.0'
+
+apply plugin: 'java-library'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.jfrog.bintray'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.5.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.5.0'
+    compile 'org.assertj:assertj-core:3.8.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+bintray {
+    user = 'iamwaseem'
+    key = '862d74e1e12172e86ca1555303f039d96e7e3483'
+    publications = ['MyPublication']
+    pkg {
+        repo = 'Assertions'
+        name = 'Assertions'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/IAmWaseem/assertions.git'
+        publicDownloadNumbers = true
+    }
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            from components.java
+            groupId 'net.waseemhassan'
+            artifactId 'assertions'
+            version '1.0'
+        }
+    }
+}
