@@ -1,5 +1,5 @@
-group 'net.waseemhassan'
-version '1.1'
+group 'io.aurorasolutions'
+version '1.2'
 
 apply plugin: 'java-library'
 apply plugin: 'maven'
@@ -10,6 +10,20 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
 }
 
 buildscript {
@@ -30,13 +44,15 @@ dependencies {
 
 bintray {
     user = 'iamwaseem'
-    key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     publications = ['MyPublication']
+    publish = true //If version should be auto published after an upload
     pkg {
         repo = 'Assertions'
         name = 'Assertions'
+        userOrg = 'aurorasolutions'
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/IAmWaseem/assertions.git'
+        vcsUrl = 'https://github.com/aurora-solutions/assertions-java-lib.git'
         publicDownloadNumbers = true
     }
 }
@@ -45,9 +61,12 @@ publishing {
     publications {
         MyPublication(MavenPublication) {
             from components.java
-            groupId 'net.waseemhassan'
+            groupId 'io.aurorasolutions'
             artifactId 'assertions'
-            version '1.1'
+            version '1.2'
+
+            artifact sourcesJar
+            artifact javadocJar
         }
     }
 }

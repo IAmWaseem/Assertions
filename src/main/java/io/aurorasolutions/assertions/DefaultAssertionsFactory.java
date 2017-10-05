@@ -1,6 +1,6 @@
-package net.waseemhassan.assertions;
+package io.aurorasolutions.assertions;
 
-import net.waseemhassan.assertions.implementations.AssertJAssertions;
+import io.aurorasolutions.assertions.implementations.AssertJAssertions;
 
 public class DefaultAssertionsFactory implements AssertionsFactory {
     @Override

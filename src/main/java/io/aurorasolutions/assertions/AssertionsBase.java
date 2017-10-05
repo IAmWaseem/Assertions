@@ -1,7 +1,7 @@
-package net.waseemhassan.assertions;
+package io.aurorasolutions.assertions;
 
-import net.waseemhassan.assertions.contracts.AssertionResult;
-import net.waseemhassan.assertions.contracts.Assertions;
+import io.aurorasolutions.assertions.contracts.AssertionResult;
+import io.aurorasolutions.assertions.contracts.Assertions;
 
 public abstract class AssertionsBase implements Assertions, AssertionResult {
     protected Object[] result;

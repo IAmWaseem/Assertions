@@ -1,6 +1,6 @@
-package net.waseemhassan.assertions;
+package io.aurorasolutions.assertions;
 
-import net.waseemhassan.assertions.contracts.Assertions;
+import io.aurorasolutions.assertions.contracts.Assertions;
 
 public class AssertionsProxy implements Assertions {
     private AssertionsBase assertions;

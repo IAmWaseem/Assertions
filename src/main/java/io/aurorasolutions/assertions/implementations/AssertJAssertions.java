@@ -1,7 +1,7 @@
-package net.waseemhassan.assertions.implementations;
+package io.aurorasolutions.assertions.implementations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.waseemhassan.assertions.AssertionsBase;
+import io.aurorasolutions.assertions.AssertionsBase;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

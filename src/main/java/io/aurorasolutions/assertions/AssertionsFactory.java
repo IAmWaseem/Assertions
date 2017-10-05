@@ -1,4 +1,4 @@
-package net.waseemhassan.assertions;
+package io.aurorasolutions.assertions;
 
 public interface AssertionsFactory {
     AssertionsBase getDefaultAssertionsInstance();
